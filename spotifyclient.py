@@ -41,9 +41,11 @@ class SpotifyClient:
         for seed_track in seed_tracks:
             seed_tracks_url += seed_track.id + ","
         seed_tracks_url = seed_tracks_url[:-1]
+        print(seed_tracks_url)
         url = f"https://api.spotify.com/v1/recommendations?seed_tracks={seed_tracks_url}&limit={limit}"
         response = self._place_get_api_request(url)
         response_json = response.json()
+        print(response_json)
         tracks = [Track(track["name"], track["id"], track["artists"][0]["name"]) for
                   track in response_json["tracks"]]
         return tracks
@@ -61,6 +63,7 @@ class SpotifyClient:
         url = f"https://api.spotify.com/v1/users/{self._user_id}/playlists"
         response = self._place_post_api_request(url, data)
         response_json = response.json()
+        print(response_json)
 
         # create playlist
         playlist_id = response_json["id"]

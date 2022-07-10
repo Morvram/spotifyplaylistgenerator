@@ -16,6 +16,8 @@ Export the environment variables:
 
 `$ export SPOTIFY_AUTHORIZATION_TOKEN=value_grabbed_from_spotify`
 
+Note that the authorization token must have the following permissions: playlist-modify-public, playlist-modify-private, and user-read-recently-played.
+
 `$ export SPOTIFY_USER_ID=value_grabbed_from_spotify`
 
 Run the entry-point script and follow the console instructions:
